@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="module">
+            import getChallenge from './getChallenge.js'
+            window.onload = async () => {
+                let b64encode = b => btoa(String.fromCharCode(...new Uint8Array(b)))
+                let challenge = await getChallenge()
+                console.log(b64encode(challenge))
+            }
+        </script>
+    </head>
+    <body>
+    </body>
+</html>
