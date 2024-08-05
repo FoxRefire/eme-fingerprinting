@@ -3,13 +3,17 @@
     <head>
         <script type="module">
             import getChallenge from './getChallenge.js'
+            import parseChallenge from './parseChallenge.js'
             window.onload = async () => {
-                let b64encode = b => btoa(String.fromCharCode(...new Uint8Array(b)))
                 let challenge = await getChallenge()
-                console.log(b64encode(challenge))
+                let parsedChallenge = await parseChallenge(challenge)
+
+                console.log(challenge)
+                document.getElementById("result").innerText = parsedChallenge
             }
         </script>
     </head>
     <body>
+        <div id="result"></div>
     </body>
 </html>
