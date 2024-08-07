@@ -30,7 +30,7 @@ async function getChallenge(keySystemAccess) {
         try{
             keySystemAccess.createMediaKeys().then(mediaKeys => {
                 let keySession = mediaKeys.createSession(config[0]['sessionTypes'])
-                keySession.addEventListener("message", () => resolve(event.message));
+                keySession.addEventListener("message", event => resolve(event.message));
                 keySession.generateRequest("cenc", initData)
             })
         } catch(err) {
